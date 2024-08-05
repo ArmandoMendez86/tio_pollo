@@ -16,6 +16,7 @@ function confirmGuestOrder(event) {
     shippingPrice = shippingPrice.replace("$", "");
     let totalAmt = $("#totalOrderSummary").val();
     totalAmt = totalAmt.replace("$", "");
+
     $("#itemList li").each(function (index) {
       let imagePath = $(this).find(".order-list-img img").attr("src");
       let idProducto = $(this).find(".order-list-img").attr("idProducto");
@@ -30,21 +31,34 @@ function confirmGuestOrder(event) {
       let itemPrice = itemTotalPrice / quantity;
       let arr = title.split("<br>");
       let productName = arr[0];
+
       itemsArray.push({
-        idProducto: idProducto,
-        idEspecialidad: idEspecialidad,
+        id_producto: idProducto,
+        id_especialidad: idEspecialidad,
         cantidad: quantity,
         descuento: 0,
       });
     });
 
-    console.log(itemsArray);
-    return;
-
     $("#submitPayment").html("Processing...").css("text-align", "left");
     $(".spinner-icon").show();
 
+    let datos = new FormData();
+    datos.append("items", JSON.stringify(itemsArray));
     $.ajax({
+      url: "ajax/menu.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function (respuesta) {
+        console.log(respuesta);
+      },
+    });
+
+    /* $.ajax({
       contentType: "application/json",
       url: createOrderUrl,
       type: "POST",
@@ -75,7 +89,7 @@ function confirmGuestOrder(event) {
           $(".spinner-icon").hide();
         }
       },
-    });
+    }); */
   }
 }
 

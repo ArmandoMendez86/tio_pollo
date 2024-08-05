@@ -7,6 +7,9 @@ class AjaxMenu
 {
 
     public $idProducto;
+    public $items;
+
+
     public function traerProducto()
     {
         $item = "id";
@@ -19,6 +22,13 @@ class AjaxMenu
         $item = null;
         $valor = null;
         $respuesta = ControladorMenu::ctrMostrarEspecialidades($item, $valor);
+        echo json_encode($respuesta);
+    }
+    public function crearVenta()
+    {
+        $tabla = "venta";
+        $datos = json_decode($this->items,true);
+        $respuesta = ControladorMenu::ctrCrearVenta($tabla, $datos);
         echo json_encode($respuesta);
     }
 }
@@ -38,4 +48,12 @@ if (isset($_POST["idProducto"])) {
 if (isset($_POST["especialidades"])) {
     $traerEspecialidad = new AjaxMenu();
     $traerEspecialidad->traerProductos();
+}
+/*=============================================
+	CREAR VENTA
+	=============================================*/
+if (isset($_POST["items"])) {
+    $crearVenta = new AjaxMenu();
+    $crearVenta->items = $_POST["items"];
+    $crearVenta->crearVenta();
 }

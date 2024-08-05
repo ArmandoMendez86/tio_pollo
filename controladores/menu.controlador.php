@@ -21,4 +21,12 @@ class ControladorMenu
         $respuesta = ModeloMenu::mdlMostrarMenu($tabla, $item, $valor);
         return $respuesta;
     }
+    /*=============================================
+	CREAR VENTA
+	=============================================*/
+    static public function ctrCrearVenta($tabla, $datos)
+    {
+        $respuesta = ModeloMenu::mdlCrearVenta($tabla, $datos);
+        return $respuesta;
+    }
 }

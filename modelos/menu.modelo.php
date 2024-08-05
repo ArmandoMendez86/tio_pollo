@@ -29,4 +29,35 @@ class ModeloMenu
             return $stmt->fetchAll();
         }
     }
+
+    /*=============================================
+	CREAR VENTA
+	=============================================*/
+    static public function mdlCrearVenta($tabla, $datos)
+    {
+        // Conectar a la base de datos usando PDO
+        $pdo = Conexion::conectar();
+
+        // Obtener las columnas de la primera fila de datos
+        $columns = array_keys($datos[0]);
+        $columns = implode(', ', $columns);
+
+        // Construir los placeholders para los valores
+        $placeholders = [];
+        $values = [];
+        foreach ($datos as $item) {
+            $placeholders[] = '(' . implode(', ', array_fill(0, count($item), '?')) . ')';
+            $values = array_merge($values, array_values($item));
+        }
+        $placeholders = implode(', ', $placeholders);
+
+        // Preparar la consulta SQL
+        $sql = "INSERT INTO $tabla ($columns) VALUES $placeholders";
+        $stmt = $pdo->prepare($sql);
+
+        // Ejecutar la consulta con los valores
+        $stmt->execute($values);
+
+        return 'ok';
+    }
 }
