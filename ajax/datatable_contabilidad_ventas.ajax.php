@@ -17,20 +17,15 @@ class TablaAdministrarVentas
 
         $ventas = ControladorContabilidad::ctrMostrarContabilidad();
 
-
-
         if (empty($ventas)) {
             $datosJson = '{"data":[]}';
             echo $datosJson;
             return;
         }
 
-
         $datosJson = '{"data":[';
 
         for ($i = 0; $i < count($ventas); $i++) {
-
-
 
             $datosJson .= '[
                     "' . ($i + 1) . '",
@@ -40,10 +35,11 @@ class TablaAdministrarVentas
                     "' . $ventas[$i]["precio"] . '",
                     "' . $ventas[$i]["cantidad"] . '",
                     "' . $ventas[$i]["descuento"] . '",
+                    "' . $ventas[$i]["porcion"] . '",
                     "' . $ventas[$i]["monto"] . '",
                     "' . $ventas[$i]["fecha"] . '",
                     "' . $ventas[$i]["n_orden"] . '",
-                    "' . $ventas[$i]["id_empleado"] . '"
+                    "' . $ventas[$i]["empleado"] . '"
                 ],';
         }
 

@@ -69,7 +69,8 @@ date_default_timezone_set('America/Mexico_City');
             if (
                 $_GET["ruta"] == "venta" ||
                 $_GET["ruta"] == "contabilidad-ventas" ||
-                $_GET["ruta"] == "salir"
+                $_GET["ruta"] == "salir" ||
+                $_GET["ruta"] == "login"
             ) {
 
                 include "modulos/" . $_GET["ruta"] . ".php";
