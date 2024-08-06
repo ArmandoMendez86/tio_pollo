@@ -396,7 +396,7 @@
   // Function to reset total price
   function resetTotal() {
     $(".totalTitle").val("Total");
-    $(".total").val("0.00");
+    $(".totalValue").val("0.00");
     formatPrice();
   }
 
@@ -554,7 +554,11 @@
 
     // Insert item into its dedicated row in the cart
     $("#cartItem" + id + rowId).html(
-      '<div class="order-list-img" idProducto="'+id+'" idEspecialidad="'+size +'"><img src="' +
+      '<div class="order-list-img" idProducto="' +
+        id +
+        '" idEspecialidad="' +
+        size +
+        '"><img src="' +
         thumbnailPath +
         '" alt=""></div><div class="order-list-details"><h4>' +
         itemTitle +
@@ -1005,7 +1009,7 @@
         itemTitle,
         extraTitle,
         itemPrice,
-		size
+        size
       );
     }
   }

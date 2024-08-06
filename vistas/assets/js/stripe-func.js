@@ -3,8 +3,6 @@ var createOrderUrl =
   document.querySelector("#personalData").dataset.createOrderUrl;
 var returnUrl = document.querySelector("#personalData").dataset.returnUrl;
 var currency = document.querySelector("#personalData").dataset.currency;
-var stripe = Stripe(stripeKey);
-var elements = stripe.elements();
 
 function confirmGuestOrder(event) {
   event.preventDefault();
@@ -12,31 +10,22 @@ function confirmGuestOrder(event) {
 
   if (valid) {
     let itemsArray = [];
-    let shippingPrice = $(".transfer").text();
-    shippingPrice = shippingPrice.replace("$", "");
-    let totalAmt = $("#totalOrderSummary").val();
-    totalAmt = totalAmt.replace("$", "");
+    let numeroOrden = $("#numeroOrden").text();
 
     $("#itemList li").each(function (index) {
-      let imagePath = $(this).find(".order-list-img img").attr("src");
       let idProducto = $(this).find(".order-list-img").attr("idProducto");
       let idEspecialidad = $(this)
         .find(".order-list-img")
         .attr("idEspecialidad");
-
-      let title = $(this).find(".order-list-details h4").html();
-      let quantity = $(this).find("input[name=qty]").val();
-      let itemTotalPrice = $(this).find(".order-list-price").text();
-      itemTotalPrice = itemTotalPrice.match(/[0-9.]+/g) * 1;
-      let itemPrice = itemTotalPrice / quantity;
-      let arr = title.split("<br>");
-      let productName = arr[0];
+      let cantidad = $(this).find("input[name=qty]").val();
 
       itemsArray.push({
         id_producto: idProducto,
         id_especialidad: idEspecialidad,
-        cantidad: quantity,
+        cantidad: cantidad,
         descuento: 0,
+        n_orden: numeroOrden,
+        id_empleado: 1,
       });
     });
 
@@ -45,6 +34,15 @@ function confirmGuestOrder(event) {
 
     let datos = new FormData();
     datos.append("items", JSON.stringify(itemsArray));
+    datos.append(
+      "nombre",
+      document.getElementById("userNameOnlinePayment").value
+    );
+    datos.append(
+      "telefono",
+      document.getElementById("phoneOnlinePayment").value
+    );
+
     $.ajax({
       url: "ajax/menu.ajax.php",
       method: "POST",
@@ -54,7 +52,14 @@ function confirmGuestOrder(event) {
       processData: false,
       dataType: "json",
       success: function (respuesta) {
-        console.log(respuesta);
+        $("#submitPayment").html("Orden registrada!");
+        $(".spinner-icon").hide();
+        /*   $('button[name="submit"]').css("background-color", "#ffa700");
+        $('button[name="submit"]').css("color", "#000");
+ */
+        setTimeout(() => {
+          window.location = "venta";
+        }, 1000);
       },
     });
 
@@ -100,14 +105,15 @@ function formValidate() {
   var address = $("#addressOnlinePayment").parsley();
   var message = $("#messageOnlinePayment").parsley();
 
-  if (
-    !name.isValid() ||
-    !phone.isValid() ||
-    !email.isValid() ||
-    !address.isValid() ||
-    !message.isValid()
-  ) {
+  if (!name.isValid() || !phone.isValid()) {
     return false;
   }
   return true;
 }
+
+/*
+ !email.isValid() ||
+    !address.isValid() ||
+    !message.isValid()
+
+*/

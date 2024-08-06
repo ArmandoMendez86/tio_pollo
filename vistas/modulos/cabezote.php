@@ -63,10 +63,4 @@
       </div>
   </header>
   <!-- Header End -->
-  <!-- Sub Header -->
-  <div class="sub-header">
-      <div class="container text-center">
-          <h1>P E D I D OS</h1>
-      </div>
-  </div>
-  <!-- Sub Header End -->
+  

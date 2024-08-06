@@ -26,10 +26,22 @@ class AjaxMenu
     }
     public function crearVenta()
     {
-        $tabla = "venta";
-        $datos = json_decode($this->items,true);
-        $respuesta = ControladorMenu::ctrCrearVenta($tabla, $datos);
-        echo json_encode($respuesta);
+        $tablaVentas = "venta";
+        $datos = json_decode($this->items, true);
+
+
+        $numeroOrden = $datos[0]['n_orden'];
+        $metodo_pago = 'efectivo';
+        $cliente = $_POST["nombre"];
+        $telefono = $_POST["telefono"];
+
+        $respuesta = ControladorMenu::ctrCrearVenta($tablaVentas, $datos);
+
+        $tablaDetallesVenta = "detalles_venta";
+        $listaProductos = $this->items;
+        $detalleVenta = ControladorMenu::ctrCrearDetalleVenta($tablaDetallesVenta, $numeroOrden, $listaProductos, $metodo_pago, $cliente, $telefono);
+
+        echo json_encode($detalleVenta);
     }
 }
 

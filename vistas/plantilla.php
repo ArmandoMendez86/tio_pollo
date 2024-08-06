@@ -38,6 +38,12 @@ date_default_timezone_set('America/Mexico_City');
     <link href="vistas/assets/vendor/magnific-popup/css/magnific-popup.css" rel="stylesheet">
     <link href="vistas/assets/vendor/float-labels/css/float-labels.min.css" rel="stylesheet">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.css">
+
+    <!-- DataTables responsive -->
+    <link href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.css" rel="stylesheet">
+
     <!-- Main CSS -->
     <link href="vistas/assets/css/style.css" rel="stylesheet">
 
@@ -62,7 +68,7 @@ date_default_timezone_set('America/Mexico_City');
 
             if (
                 $_GET["ruta"] == "venta" ||
-                $_GET["ruta"] == "reportes" ||
+                $_GET["ruta"] == "contabilidad-ventas" ||
                 $_GET["ruta"] == "salir"
             ) {
 
@@ -82,10 +88,6 @@ date_default_timezone_set('America/Mexico_City');
 
 
         ?>
-
-
-
-
 
 
 
@@ -111,14 +113,23 @@ date_default_timezone_set('America/Mexico_City');
         <script src="vistas/assets/vendor/lazyload/js/lazyload.min.js"></script>
         <script src="vistas/assets/vendor/sticky-kit/js/sticky-kit.min.js"></script>
 
-        <!-- Stripe Javascript Files -->
-        <script src="https://js.stripe.com/v3/"></script>
-        <script src="vistas/assets/js/stripe-func.js"></script>
+        <!-- DataTables -->
+        <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+        <!-- <script src="vistas/assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script> -->
 
-        
-        
+        <!-- DataTables responsive -->
+        <script src="https://cdn.datatables.net/responsive/3.0.2/js/dataTables.responsive.js"></script>
+        <script src="https://cdn.datatables.net/responsive/3.0.2/js/responsive.dataTables.js"></script>
+
+        <!-- Stripe Javascript Files -->
+        <!-- <script src="https://js.stripe.com/v3/"></script> -->
+
+
+
         <!-- Main Javascript File -->
+        <script src="vistas/assets/js/stripe-func.js"></script>
         <script src="vistas/assets/js/venta.js"></script>
+        <script src="vistas/assets/js/contabilidad-ventas.js"></script>
 
 
     </div>

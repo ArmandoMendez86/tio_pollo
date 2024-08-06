@@ -60,4 +60,22 @@ class ModeloMenu
 
         return 'ok';
     }
+    /*=============================================
+	CREAR DETALLE VENTA
+	=============================================*/
+    static public function mdlCrearDetalleVenta($tabla, $n_orden, $datos, $metodo_pago, $cliente, $telefono)
+    {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(productos, n_orden, metodo_pago, cliente, telefono) VALUES(:productos, :n_orden, :metodo_pago, :cliente, :telefono)");
+        $stmt->bindParam(":productos", $datos, PDO::PARAM_STR);
+        $stmt->bindParam(":n_orden", $n_orden, PDO::PARAM_STR);
+        $stmt->bindParam(":metodo_pago", $metodo_pago, PDO::PARAM_STR);
+        $stmt->bindParam(":cliente", $cliente, PDO::PARAM_STR);
+        $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return 'ok';
+        } else {
+            return 'error';
+        }
+    }
 }

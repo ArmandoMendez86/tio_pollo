@@ -1,3 +1,13 @@
+   <!-- Sub Header -->
+  <div class="sub-header">
+      <div class="container text-center">
+          <h1>P E D I D O S</h1>
+      </div>
+  </div>
+  <!-- Sub Header End -->
+   
+   
+   
    <!-- Main -->
    <main>
        <!-- Order -->
@@ -67,10 +77,10 @@
                                 }
 
                                 echo '
-                                <div id="' . $value['id'] . '" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 isotope-item ' . $value['categoria'] . '">
+                                <div id="' . $value['id'] . '" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 isotope-item ' . $value['categoria'] . '">
                                 <div class="item-body">
                                     <figure>
-                                        <img src="vistas/assets/img/bg/lazy-placeholder.jpg" data-src="vistas/assets/img/gallery/carnes/carne_1.jpg" class="img-fluid lazy" alt="">
+                                        <img src="vistas/assets/img/bg/lazy-placeholder.jpg" data-src="vistas/assets/img/gallery/' . $value['img'] . '" class="img-fluid lazy" alt="">
                                         <a href="#modalDetailsItem" class="item-body-link modal-opener">
                                             <div class="item-title">
                                                 <h3>' . strtoupper($value['producto']) . '</h3>
@@ -86,7 +96,7 @@
                                             <span class="item-price">$ ' . $value['precio'] . '</span>
                                         </li>
                                         <li>
-                                            <a href="javascript:;" class="' . $opciones . '"><i class="fa fa-plus text-danger" aria-hidden="true"></i></a>
+                                            <a href="javascript:;" class="' . $opciones . '"><i class="fa fa-plus text-dark" aria-hidden="true"></i></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -411,7 +421,7 @@
                                        <div class="row total-container">
                                            <div class="col-md-12 p-0">
                                                <span class="totalTitle">Total</span><span class="totalValue format-price float-right">0.00</span>
-                                               <input type="hidden" id="totalOrderSummary" class="total format-price" name="total" value="" data-parsley-errors-container="#totalError" data-parsley-empty-order="" disabled />
+                                               <input type="hidden" id="totalOrderSummary" class="total format-price" name="total" value="$ 0.00" data-parsley-errors-container="#totalError" data-parsley-empty-order="" disabled />
                                            </div>
                                        </div>
                                        <div id="totalError"></div>
@@ -453,7 +463,7 @@
                                                    </div>
                                                </div>
                                            </div>
-                                           <div class="row">
+                                           <!-- <div class="row">
                                                <div class="col-md-12">
                                                    <div class="form-group">
                                                        <label for="emailOnlinePayment">Email</label>
@@ -476,7 +486,7 @@
                                                        <input id="messageOnlinePayment" class="form-control" name="message" type="text" data-parsley-pattern="^[a-zA-Z0-9\s.:,!?']+$" />
                                                    </div>
                                                </div>
-                                           </div>
+                                           </div> -->
                                            <div class="row total-container">
                                                <div class="col-md-12 p-0">
                                                    <span class="totalTitle">Total</span><span class="totalValue format-price float-right">0.00</span>
@@ -674,5 +684,3 @@
        </div>
    </div>
    <!-- Modal Details for Item 02 End -->
-
-   
