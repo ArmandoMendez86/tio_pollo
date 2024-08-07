@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-08-2024 a las 20:47:34
+-- Tiempo de generación: 07-08-2024 a las 07:12:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -34,22 +34,17 @@ CREATE TABLE `detalles_venta` (
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `metodo_pago` varchar(20) NOT NULL,
   `cliente` varchar(150) NOT NULL,
-  `telefono` varchar(20) NOT NULL
+  `telefono` varchar(20) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `detalles_venta`
 --
 
-INSERT INTO `detalles_venta` (`id`, `productos`, `n_orden`, `fecha`, `metodo_pago`, `cliente`, `telefono`) VALUES
-(3, '[{\"id_producto\":\"4\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"41473\",\"id_empleado\":1},{\"id_producto\":\"3\",\"id_especialidad\":\"9\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"41473\",\"id_empleado\":1},{\"id_producto\":\"6\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"41473\",\"id_empleado\":1},{\"id_producto\":\"12\",\"id_especialidad\":\"1\",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"41473\",\"id_empleado\":1}]', '41473', '2024-08-06 01:48:04', '', '', ''),
-(4, '[{\"id_producto\":\"11\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"93138\",\"id_empleado\":1},{\"id_producto\":\"12\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"93138\",\"id_empleado\":1},{\"id_producto\":\"18\",\"id_especialidad\":\"1\",\"cantidad\":\"3\",\"descuento\":0,\"n_orden\":\"93138\",\"id_empleado\":1}]', '93138', '2024-08-06 01:50:40', '', '', ''),
-(5, '[{\"id_producto\":\"13\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"76815\",\"id_empleado\":1},{\"id_producto\":\"12\",\"id_especialidad\":\"1\",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"76815\",\"id_empleado\":1}]', '76815', '2024-08-06 03:01:48', 'efectivo', 'Mirna luz', '+527474592723'),
-(6, '[{\"id_producto\":\"13\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"45573\",\"id_empleado\":1},{\"id_producto\":\"16\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"45573\",\"id_empleado\":1}]', '45573', '2024-08-06 03:20:29', 'efectivo', 'Gumercindo mendez lopez', '+527471306291'),
-(7, '[{\"id_producto\":\"7\",\"id_especialidad\":\"1\",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"67949\",\"id_empleado\":1},{\"id_producto\":\"9\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"67949\",\"id_empleado\":1}]', '67949', '2024-08-06 03:22:12', 'efectivo', 'Mario mendez rios', '+52747122457'),
-(8, '[{\"id_producto\":\"1\",\"id_especialidad\":\"4\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"89780\",\"id_empleado\":1},{\"id_producto\":\"10\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"89780\",\"id_empleado\":1},{\"id_producto\":\"9\",\"id_especialidad\":\"1\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"89780\",\"id_empleado\":1}]', '89780', '2024-08-06 14:13:27', 'efectivo', 'Kevin Brayan', '+527471306291'),
-(9, '[{\"id_producto\":\"1\",\"id_especialidad\":\"4\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"27443\",\"id_empleado\":1},{\"id_producto\":\"10\",\"id_especialidad\":\"1\",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"27443\",\"id_empleado\":1}]', '27443', '2024-08-06 16:23:39', 'efectivo', 'Sayra', '+527441229046'),
-(10, '[{\"id_producto\":\"3\",\"id_especialidad\":\"4\",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"09169\",\"id_empleado\":1}]', '09169', '2024-08-06 17:37:05', 'efectivo', 'prueba', '+527471228268');
+INSERT INTO `detalles_venta` (`id`, `productos`, `n_orden`, `fecha`, `metodo_pago`, `cliente`, `telefono`, `status`) VALUES
+(11, '[{\"productos\":\"POLLO Adobado 3/4 PZA \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"47198\",\"id_empleado\":1},{\"productos\":\"POLLO Habanero 1/2 PZA \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"47198\",\"id_empleado\":1},{\"productos\":\"ARROZ Un litro  \",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"47198\",\"id_empleado\":1}]', '47198', '2024-08-07 05:02:07', 'efectivo', 'Martin mendez lopez', '+527471228268', 0),
+(12, '[{\"productos\":\"POLLO BBQ 1/4 PZA \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"13789\",\"id_empleado\":1},{\"productos\":\"POLLO Tamarindo chipotle 1/4 PZA \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"13789\",\"id_empleado\":1},{\"productos\":\"COSTILLA DE CERDO Un cuarto  \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"13789\",\"id_empleado\":1},{\"productos\":\"ESPAGUETTI Un litro  \",\"cantidad\":\"1\",\"descuento\":0,\"n_orden\":\"13789\",\"id_empleado\":1},{\"productos\":\"ESPAGUETTI Bolsita  \",\"cantidad\":\"2\",\"descuento\":0,\"n_orden\":\"13789\",\"id_empleado\":1}]', '13789', '2024-08-07 05:08:15', 'efectivo', 'Mirna luz', '+527474592723', 0);
 
 -- --------------------------------------------------------
 
@@ -128,24 +123,24 @@ INSERT INTO `productos` (`id`, `producto`, `porcion`, `unidad`, `categoria`, `pr
 (2, 'pollo', '0.75', 'pza', 'carne', 175, 'Tres cuartos', 'pollos/generica.jpg'),
 (3, 'pollo', '0.5', 'pza', 'carne', 125, 'Medio', 'pollos/generica.jpg'),
 (4, 'pollo', '0.25', 'pza', 'carne', 70, 'Un cuarto', 'pollos/generica.jpg'),
-(5, 'carne asada', '1', 'platillo', 'carne', 120, 'Sirloin', 'carnes/sirloin.jpg'),
-(6, 'costilla de cerdo', '1', 'kg', 'carne', 230, 'Un kilogramo', 'carnes/costilla_cerdo.jpg'),
+(5, 'carne asada', '1', 'platillo', 'carne', 120, 'Platillo', 'carnes/sirloin.jpg'),
+(6, 'costilla de cerdo', '1', 'kg', 'carne', 230, 'Un kilo', 'carnes/costilla_cerdo.jpg'),
 (7, 'costilla de cerdo', '0.5', 'kg', 'carne', 165, 'Medio', 'carnes/costilla_cerdo.jpg'),
 (9, 'costilla de cerdo', '0.25', 'kg', 'carne', 80, 'Un cuarto', 'carnes/costilla_cerdo.jpg'),
 (10, 'arroz', '1', 'lt', 'extras', 50, 'Un litro', 'extras/generica.jpg'),
-(11, 'arroz', '0.5', 'lt', 'extras', 25, 'Medio litro', 'extras/generica.jpg'),
-(12, 'arroz', '1', 'bolsita', 'extras', 15, 'Bolsita de arroz', 'extras/generica.jpg'),
+(11, 'arroz', '0.5', 'lt', 'extras', 25, 'Medio', 'extras/generica.jpg'),
+(12, 'arroz', '1', 'bolsita', 'extras', 15, 'Bolsita', 'extras/generica.jpg'),
 (13, 'espaguetti', '1', 'lt', 'extras', 50, 'Un litro', 'extras/spaguetti.jpg'),
-(14, 'espaguetti', '0.5', 'lt', 'extras', 25, 'Medio litro', 'extras/spaguetti.jpg'),
-(15, 'espaguetti', '1', 'bolsita', 'extras', 15, 'Bolsita de spaguetti', 'extras/spaguetti.jpg'),
+(14, 'espaguetti', '0.5', 'lt', 'extras', 25, 'Medio', 'extras/spaguetti.jpg'),
+(15, 'espaguetti', '1', 'bolsita', 'extras', 15, 'Bolsita', 'extras/spaguetti.jpg'),
 (16, 'Frijoles charros', '1', 'lt', 'extras', 75, 'Un litro', 'extras/frijoles_charros.jpg'),
-(17, 'Frijoles charros', '0.5', 'lt', 'extras', 35, 'Medio litro', 'extras/frijoles_charros.jpg'),
+(17, 'Frijoles charros', '0.5', 'lt', 'extras', 35, 'Medio', 'extras/frijoles_charros.jpg'),
 (18, 'Salsa verde', '1', 'pza', 'extras', 10, 'Bolsita', 'extras/salsa_verde.jpg'),
 (19, 'Salsa roja', '1', 'pza', 'extras', 10, 'Bolsita', 'extras/salsa_roja.jpg'),
-(20, 'carne asada', '1', 'kg', 'carne', 230, 'Sirloin', 'carnes/sirloin.jpg'),
-(21, 'carne asada', '0.5', 'kg', 'carne', 165, 'Sirloin', 'carnes/sirloin.jpg'),
+(20, 'carne asada', '1', 'kg', 'carne', 230, 'Un kilo', 'carnes/sirloin.jpg'),
+(21, 'carne asada', '0.5', 'kg', 'carne', 165, 'Medio', 'carnes/sirloin.jpg'),
 (23, 'arrachera', '1', 'kg', 'carne', 230, 'Un kilo', 'carnes/arrachera.jpg'),
-(24, 'arrachera', '0.5', 'kg', 'carne', 165, 'Medio kilo', 'carnes/arrachera.jpg'),
+(24, 'arrachera', '0.5', 'kg', 'carne', 165, 'Medio', 'carnes/arrachera.jpg'),
 (25, 'arrachera', '0.25', 'kg', 'carne', 80, 'Un cuarto', 'carnes/arrachera.jpg');
 
 -- --------------------------------------------------------
@@ -188,7 +183,15 @@ INSERT INTO `venta` (`id`, `id_producto`, `id_especialidad`, `cantidad`, `descue
 (84, 9, 1, 1, 0, '2024-08-06 14:13:27', '89780', 1),
 (85, 1, 4, 1, 0, '2024-08-06 16:23:39', '27443', 1),
 (86, 10, 1, 2, 0, '2024-08-06 16:23:39', '27443', 1),
-(87, 3, 4, 1, 0, '2024-08-06 17:37:05', '09169', 1);
+(87, 3, 4, 1, 0, '2024-08-06 17:37:05', '09169', 1),
+(88, 2, 3, 1, 0, '2024-08-07 05:02:07', '47198', 1),
+(89, 3, 2, 1, 0, '2024-08-07 05:02:07', '47198', 1),
+(90, 10, 1, 2, 0, '2024-08-07 05:02:07', '47198', 1),
+(91, 4, 5, 1, 0, '2024-08-07 05:08:15', '13789', 1),
+(92, 4, 9, 1, 0, '2024-08-07 05:08:15', '13789', 1),
+(93, 9, 1, 1, 0, '2024-08-07 05:08:15', '13789', 1),
+(94, 13, 1, 1, 0, '2024-08-07 05:08:15', '13789', 1),
+(95, 15, 1, 2, 0, '2024-08-07 05:08:15', '13789', 1);
 
 --
 -- Índices para tablas volcadas
@@ -235,7 +238,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `detalles_venta`
 --
 ALTER TABLE `detalles_venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
@@ -259,7 +262,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- Restricciones para tablas volcadas

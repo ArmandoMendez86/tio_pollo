@@ -34,11 +34,12 @@ class AjaxMenu
         $metodo_pago = 'efectivo';
         $cliente = $_POST["nombre"];
         $telefono = $_POST["telefono"];
+        
 
         $respuesta = ControladorMenu::ctrCrearVenta($tablaVentas, $datos);
 
         $tablaDetallesVenta = "detalles_venta";
-        $listaProductos = $this->items;
+        $listaProductos = $_POST["nproductos"];
         $detalleVenta = ControladorMenu::ctrCrearDetalleVenta($tablaDetallesVenta, $numeroOrden, $listaProductos, $metodo_pago, $cliente, $telefono);
 
         echo json_encode($detalleVenta);

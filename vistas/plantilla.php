@@ -67,8 +67,9 @@ date_default_timezone_set('America/Mexico_City');
         if (isset($_GET["ruta"])) {
 
             if (
-                $_GET["ruta"] == "venta" ||
-                $_GET["ruta"] == "contabilidad-ventas" ||
+                $_GET["ruta"] == "pedidos" ||
+                $_GET["ruta"] == "ventas" ||
+                $_GET["ruta"] == "pendientes" ||
                 $_GET["ruta"] == "salir" ||
                 $_GET["ruta"] == "login"
             ) {
@@ -129,8 +130,9 @@ date_default_timezone_set('America/Mexico_City');
 
         <!-- Main Javascript File -->
         <script src="vistas/assets/js/stripe-func.js"></script>
-        <script src="vistas/assets/js/venta.js"></script>
-        <script src="vistas/assets/js/contabilidad-ventas.js"></script>
+        <script src="vistas/assets/js/pedidos.js"></script>
+        <script src="vistas/assets/js/ventas.js"></script>
+        <script src="vistas/assets/js/pendientes.js"></script>
 
 
     </div>

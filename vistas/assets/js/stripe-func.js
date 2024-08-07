@@ -10,10 +10,12 @@ function confirmGuestOrder(event) {
 
   if (valid) {
     let itemsArray = [];
+    let productosNombres = [];
     let numeroOrden = $("#numeroOrden").text();
 
     $("#itemList li").each(function (index) {
       let idProducto = $(this).find(".order-list-img").attr("idProducto");
+      let producto = $(this).find(".order-list-details h4").text();
       let idEspecialidad = $(this)
         .find(".order-list-img")
         .attr("idEspecialidad");
@@ -27,6 +29,14 @@ function confirmGuestOrder(event) {
         n_orden: numeroOrden,
         id_empleado: 1,
       });
+
+      productosNombres.push({
+        productos: producto,
+        cantidad: cantidad,
+        descuento: 0,
+        n_orden: numeroOrden,
+        id_empleado: 1,
+      });
     });
 
     $("#submitPayment").html("Processing...").css("text-align", "left");
@@ -34,6 +44,7 @@ function confirmGuestOrder(event) {
 
     let datos = new FormData();
     datos.append("items", JSON.stringify(itemsArray));
+    datos.append("nproductos", JSON.stringify(productosNombres));
     datos.append(
       "nombre",
       document.getElementById("userNameOnlinePayment").value
@@ -58,7 +69,7 @@ function confirmGuestOrder(event) {
         $('button[name="submit"]').css("color", "#000");
  */
         setTimeout(() => {
-          window.location = "venta";
+          window.location = "pedidos";
         }, 1000);
       },
     });
