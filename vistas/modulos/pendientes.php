@@ -8,120 +8,52 @@
 
 <!-- Main -->
 <main>
-    <!-- Order -->
-    <div class="order">
-        <!-- Container -->
-        <div class="container">
-            <!-- Row -->
-            <div class="row">
-                <!-- Left Sidebar -->
-                <div class="col-lg-12" id="mainContent">
-
-                    <!-- Grid -->
-                    <div class="row grid">
-
-                        <!-- Grid Item 01 -->
-                        <div id="gridItem01" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 isotope-item carne">
-                            <div class="item-body">
-                                <figure>
-                                    <img src="assets/img/bg/lazy-placeholder.jpg" data-src="assets/img/gallery/carnes/carne_1.jpg" class="img-fluid lazy" alt="">
-                                    <a href="#modalDetailsItem01" class="item-body-link modal-opener">
-                                        <div class="item-title">
-                                            <h3>Aspen</h3>
-                                            <small>Bacon, Onion, Mushroom ...</small>
-                                        </div>
-                                    </a>
-                                    <div class="ribbon-size"><span>Size: M</span></div>
-                                </figure>
-                                <ul>
-                                    <li>
-                                        <a href="#modalOptionsItem01" class=" modal-opener">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                            Especialidad
-                                        </a>
-                                    </li>
-                                    <li class="pl-2">
-                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                        <span class="format-price">8.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="add-options-item-to-cart"><i class="fa fa-plus text-danger" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Grid Item 01 -->
-                        <div id="gridItem01" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 isotope-item carne">
-                            <div class="item-body">
-                                <figure>
-                                    <img src="assets/img/bg/lazy-placeholder.jpg" data-src="assets/img/gallery/carnes/carne_1.jpg" class="img-fluid lazy" alt="">
-                                    <a href="#modalDetailsItem01" class="item-body-link modal-opener">
-                                        <div class="item-title">
-                                            <h3>Aspen</h3>
-                                            <small>Bacon, Onion, Mushroom ...</small>
-                                        </div>
-                                    </a>
-                                    <div class="ribbon-size"><span>Size: M</span></div>
-                                </figure>
-                                <ul>
-                                    <li>
-                                        <a href="#modalOptionsItem01" class=" modal-opener">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                            Especialidad
-                                        </a>
-                                    </li>
-                                    <li class="pl-2">
-                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                        <span class="format-price">8.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="add-options-item-to-cart"><i class="fa fa-plus text-danger" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Grid Item 01 -->
-                        <div id="gridItem01" class="col-xl-4 col-lg-4 col-md-4 col-sm-4 isotope-item carne">
-                            <div class="item-body">
-                                <figure>
-                                    <img src="assets/img/bg/lazy-placeholder.jpg" data-src="assets/img/gallery/carnes/carne_1.jpg" class="img-fluid lazy" alt="">
-                                    <a href="#modalDetailsItem01" class="item-body-link modal-opener">
-                                        <div class="item-title">
-                                            <h3>Aspen</h3>
-                                            <small>Bacon, Onion, Mushroom ...</small>
-                                        </div>
-                                    </a>
-                                    <div class="ribbon-size"><span>Size: M</span></div>
-                                </figure>
-                                <ul>
-                                    <li>
-                                        <a href="#modalOptionsItem01" class=" modal-opener">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                            Especialidad
-                                        </a>
-                                    </li>
-                                    <li class="pl-2">
-                                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                                        <span class="format-price">8.00</span>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="add-options-item-to-cart"><i class="fa fa-plus text-danger" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
 
+    <?php
+
+    $item = null;
+    $valor = null;
+    $pendientes = ControladorPedidos::ctrMostrarPendientes($item, $valor);
+
+
+    foreach ($pendientes as $key => $pendiente) {
+
+        $productos = json_decode($pendiente["productos"]);
+
+        foreach ($productos as $key => $value) {
+
+            echo ' 
+                    <div id="#orderSummarySte" class="col-6">
+                    <div class="order-header mt-5">
+                    
+                    <h3>' . $pendiente["n_orden"] . '</h3>
                     </div>
-                    <!-- Grid End -->
-                </div>
-                <!-- Left Sidebar End -->
+                    <div class="order-body">
+                        <!-- Cart Items -->
+                        <div class="row">
+                            <div>
+                                <div class="order-list">
+                                    <ul id="itemList">
+                                
+                    <li id="cartItem' . $key . '">
+                                <div class="order-list-img" idproducto="6" idespecialidad="1"><img src="vistas/assets/img/gallery/grid-items-small/generica.jpg" alt=""></div>
+                                <div class="order-list-details">
+                                    <h4>' . $value->productos . '</h4>
+                                    <div class="qty-buttons"> <input type="button" value="+" class="qtyplus" name="plus"> <input type="text" name="qty" value="1" class="qty form-control"> <input type="button" value="-" class="qtyminus" name="minus"> </div>
+                                    <div class="order-list-price format-price">$ 230.00</div>
+                                    <div class="order-list-delete"><a href="javascript:;" id="deleteCartItem6"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div>
+                                </div>
+                    </li>';
+        }
 
-            </div>
-            <!-- Row End -->
-        </div>
-        <!-- Container End -->
-    </div>
-    <!-- Order End -->
+        echo '</ul></div></div></div>';
+    }
+
+    ?>
+
+
+
+
 </main>
 <!-- Main End -->
