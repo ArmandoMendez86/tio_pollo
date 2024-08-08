@@ -70,6 +70,7 @@ date_default_timezone_set('America/Mexico_City');
                 $_GET["ruta"] == "pedidos" ||
                 $_GET["ruta"] == "ventas" ||
                 $_GET["ruta"] == "pendientes" ||
+                $_GET["ruta"] == "recibos" ||
                 $_GET["ruta"] == "salir" ||
                 $_GET["ruta"] == "login"
             ) {
@@ -133,6 +134,7 @@ date_default_timezone_set('America/Mexico_City');
         <script src="vistas/assets/js/pedidos.js"></script>
         <script src="vistas/assets/js/ventas.js"></script>
         <script src="vistas/assets/js/pendientes.js"></script>
+        <script src="vistas/assets/js/recibos.js"></script>
 
 
     </div>

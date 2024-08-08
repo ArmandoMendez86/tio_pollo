@@ -6,7 +6,7 @@ $(".contabilidadVentas").DataTable({
   language: {
     url: "vistas/assets/js/mx.json",
   },
-  order: [[0, "desc"]],
+  order: [[9, "desc"]],
 
   footerCallback: function (row, data, start, end, display) {
     let api = this.api();
