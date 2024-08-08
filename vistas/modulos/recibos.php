@@ -1,7 +1,7 @@
 <!-- Sub Header -->
 <div class="sub-header">
     <div class="container text-center">
-        <h1>DETALLES DE VENTAS</h1>
+        <h1>DETALLES DE VENTA</h1>
     </div>
 </div>
 <!-- Sub Header End -->
@@ -17,7 +17,7 @@
                 <th>Metodo pago</th>
                 <th>Cliente</th>
                 <th>Teléfono</th>
-                <th>Estatus</th>
+                <th>Pago</th>
                 <th>Acciones</th>
             </tr>
         </thead>

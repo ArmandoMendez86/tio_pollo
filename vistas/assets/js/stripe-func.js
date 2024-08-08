@@ -21,6 +21,12 @@ function confirmGuestOrder(event) {
         .attr("idEspecialidad");
       let cantidad = $(this).find("input[name=qty]").val();
 
+      var itemTotalPrice = $(this).find('.order-list-price').text();
+      itemTotalPrice = (itemTotalPrice.match(/[0-9.]+/g)) * 1;
+
+      console.log(itemTotalPrice)
+      return
+
       itemsArray.push({
         id_producto: idProducto,
         id_especialidad: idEspecialidad,
